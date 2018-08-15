@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Golangサンドボックス</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/app.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <ul class="nav navbar-nav">
+                        <li data-id="1" class="active js-transition-page"><a href="#">データ一覧(削除はこっちで)</a></li>
+                        <li data-id="2" class="js-transition-page"><a href="#">データ登録</a></li>
+                        <li data-id="3" class="js-transition-page"><a href="#">データ検索/ファイル出力</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <div class="Top">
+                    <div class="row">
+                        <button type="button" class="btn btn-primary js-fetch-data">現在のユーザデータをJSON形式で取得</button>
+                        <div class="user-data-area"></div>
+                    </div>
+                </div>
+                <div class="RegistrationPage" style="display: none">
+                    <div class="row">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">名前:</label>
+                                <span class="label label-danger">必須</span>
+                                <input type="text" class="form-control" id="name" maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="job">職業:</label>
+                                <span class="label label-danger">必須</span>
+                                <input type="text" class="form-control" id="job" maxlength="100">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="biko">備考:</label>
+                                <textarea placeholder="備考がある場合入力してください。" name="biko"　rows="3" class="form-control" id="biko"></textarea>
+                            </div>
+                            <button type="button" class="btn btn-primary js-registration-data">データを登録する</button>
+                            <input type="reset" class="btn btn-default" value="クリア">
+                        </form>
+                    </div>
+                </div>
+                <div class="SearchPage" style="display: none">
+                    <div class="row">
+                        <form>
+                            <div class="form-group">
+                                <label for="SearchPage__name">名前</label>
+                                <input type="text" class="form-control" id="SearchPage__name" maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="SearchPage__job">職業</label>
+                                <input type="text" class="form-control" id="SearchPage__job" maxlength="100">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="SearchPage__biko">備考</label>
+                                <input type="text" class="form-control" id="SearchPage__biko">
+                            </div>
+                            <button type="button" class="btn btn-primary js-serach-data">検索する</button>
+                            <input type="reset" class="btn btn-default" value="クリア">
+                            <button type="button" class="btn btn-success js-output-xlsx-data" disabled>現在の状態をエクセルで出力する</button>
+                            <button type="button" class="btn btn-warning js-output-csv-data" disabled>現在の状態をCSVで出力する</button>
+                        </form>
+                        <div class="serach-display-area"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
