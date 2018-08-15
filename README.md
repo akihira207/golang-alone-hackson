@@ -18,6 +18,11 @@ http://gihyo.jp/dev/feature/01/go_4beginners
 - エクセル出力(即時)
 - CSV出力(即時)
 
+## 使ったモジュール
+- go get github.com/go-sql-driver/mysql
+- go get github.com/tealeg/xlsx
+- go get github.com/djimenez/iconv-go
+
 ## 動かすための修正箇所
 JSのajaxURL部分
 app.goのmysqlの接続部分
