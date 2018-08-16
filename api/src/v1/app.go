@@ -271,7 +271,7 @@ func OutputXlsxHandler(w http.ResponseWriter, r *http.Request) {
         cell.Value = v.Biko
     }
 
-    filePath := "tmp/test.xlsx"
+    filePath := "/tmp/test.xlsx"
     err = file.Save(filePath)
     if err != nil {
         fmt.Printf(err.Error())
@@ -287,7 +287,7 @@ func OutputXlsxHandler(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Cache-Control", "max-age=0")
     w.WriteHeader(http.StatusOK)
 
-    content, err := ioutil.ReadFile("tmp/test.xlsx")
+    content, err := ioutil.ReadFile("/tmp/test.xlsx")
     if err != nil {
         panic(err)
     }
@@ -302,7 +302,7 @@ func OutputCsvHandler(w http.ResponseWriter, r *http.Request) {
 
     // O_WRONLY: 書き込みモード開く, O_CREATE: 存在しない場合、ファイルを作成
     // file, err := os.OpenFile("/tmp/test.csv", os.O_WRONLY|os.O_CREATE, 0600)
-    file, err := os.Create("tmp/test.csv")
+    file, err := os.Create("/tmp/test.csv")
     if err != nil {
         panic(err)
     }
@@ -332,7 +332,7 @@ func OutputCsvHandler(w http.ResponseWriter, r *http.Request) {
 
     w.Header().Set("Content-Disposition", attachment)
     w.Header().Set("Content-Type", "text/csv")
-    content, err := ioutil.ReadFile("tmp/test.csv")
+    content, err := ioutil.ReadFile("/tmp/test.csv")
     if err != nil {
         panic(err)
     }
